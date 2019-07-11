@@ -12,7 +12,7 @@ pow(X,Y) -> X * pow(X,Y-1).
 
 'mul'({A,B},{C,D}) -> norm({A+C,B*D}).
 
-'div'({A,N},{C,D}) -> norm({A+C+1,N*pow(10,A+C) div D}).
+'div'({A,N},{C,D}) -> norm({A+C+1,N*pow(10,A+C+1) div D}).
 
 'norm'({0,B}) -> {0,B};
 'norm'({A,B}) when B rem 10 == 0 -> 'norm'({A-1,B div 10});
