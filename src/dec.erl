@@ -12,15 +12,21 @@ pow(X,Y) -> X * pow(X,Y-1).
 
 'mul'({A,B},{C,D}) -> norm({A+C,B*D}).
 
-'div'({A,N},{C,D}) -> norm({A+C+1,N*pow(10,A+C+1) div D}).
+'div'({A,N},{C,D}) -> norm({A+C,N*pow(10,A+C) div D}).
 
 'norm'({0,B}) -> {0,B};
 'norm'({A,B}) when B rem 10 == 0 -> 'norm'({A-1,B div 10});
-'norm'({A,B}) -> {0,B*pow(10,A)}.
+'norm'({A,B}) -> {A,B}.
 
+lift({X,Y},N) -> {X+N,N*pow(10,N)}.
+
+nsub({A,_}=X,{C,_}=Y) when A > C -> nsub(X,lift(Y,A-C));
+nsub({A,_}=X,{C,_}=Y) when C > A -> nsub(lift(X,C-A),Y);
+nsub({X,B}=A,{X,D}=C) -> norm({X,B-D}).
 sub(A,B) -> nsub(norm(A),norm(B)).
-nsub({A,B},{C,D}) -> {0,B - D}.
 
+nadd({A,_}=X,{C,_}=Y) when A > C -> nadd(X,lift(Y,A-C));
+nadd({A,_}=X,{C,_}=Y) when C > A -> nadd(lift(X,C-A),Y);
+nadd({X,B}=A,{X,D}=C) -> norm({X,B+D}).
 add(A,B) -> nadd(norm(A),norm(B)).
-nadd({A,B},{C,D}) -> {0,B + D}.
 
