@@ -1,0 +1,10 @@
+{application, dec,
+ [
+  {description, "DEC Decimal Arbitrary Precision"},
+  {vsn, "0.7.0"},
+  {registered, []},
+  {applications, [kernel,stdlib]},
+  {mod, { dec, []}},
+  {env, []}
+ ]}.
+
