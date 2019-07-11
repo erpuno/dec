@@ -10,13 +10,13 @@ start(_, _)  -> supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 pow(X,0) -> 1;
 pow(X,Y) -> X * pow(X,Y-1).
 
-'mul'({A,B},{C,D}) -> norm({A+C,B*D}).
+mul({A,B},{C,D}) -> norm({A+C,B*D}).
 
-'div'({A,N},{C,D}) -> norm({A+C,N*pow(10,A+C) div D}).
+'div'({A,N},{C,D}) -> norm({A+C,N*pow(10,A+C+1) div D}).
 
-'norm'({0,B}) -> {0,B};
-'norm'({A,B}) when B rem 10 == 0 -> 'norm'({A-1,B div 10});
-'norm'({A,B}) -> {A,B}.
+norm({0,B}) -> {0,B};
+norm({A,B}) when B rem 10 == 0 -> norm({A-1,B div 10});
+norm({A,B}) -> {A,B}.
 
 lift({X,Y},N) -> {X+N,N*pow(10,N)}.
 
