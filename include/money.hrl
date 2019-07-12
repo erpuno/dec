@@ -8,6 +8,6 @@
 -spec mul(money(),money()) -> money().
 -spec 'div'(money(),money()) -> money().
 -spec add(money(),money()) -> money().
--spec sum(money(),money()) -> money().
+-spec sub(money(),money()) -> money().
 
 -endif.
