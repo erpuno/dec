@@ -12,13 +12,14 @@ pow(X,Y) -> X * pow(X,Y-1).
 
 mul({A,B},{C,D}) -> norm({A+C,B*D}).
 
-'div'({A,N},{C,D}) -> norm({A+C,N*pow(10,A+C+1) div D}).
+ndiv({X,A}=N,{Y,B}=M) ->{F,K} = lift(N,length(integer_to_list(B))-X), norm({F-Y,K div B}).
+'div'({X,A}=N,{Y,B}=M) -> ndiv(norm(N),norm(M)).
 
 norm({0,B}) -> {0,B};
 norm({A,B}) when B rem 10 == 0 -> norm({A-1,B div 10});
 norm({A,B}) -> {A,B}.
 
-lift({X,Y},N) -> {X+N,N*pow(10,N)}.
+lift({X,Y},N) -> {X+N,Y*pow(10,N)}.
 
 nsub({A,_}=X,{C,_}=Y) when A > C -> nsub(X,lift(Y,A-C));
 nsub({A,_}=X,{C,_}=Y) when C > A -> nsub(lift(X,C-A),Y);
