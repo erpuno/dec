@@ -16,7 +16,7 @@ defmodule DEC.Mixfile do
     [
       files: ~w(doc include lib src mix.exs LICENSE),
       licenses: ["ISC"],
-      maintainers: ["Namdak Tonpa"],
+      maintainers: ["Namdak Tonpa", "Oleksandr Palchikovskiy"],
       name: :dec,
       links: %{"GitHub" => "https://github.com/enterprizing/dec"}
     ]
