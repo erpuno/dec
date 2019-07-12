@@ -12,7 +12,7 @@ pow(X,Y) -> X * pow(X,Y-1).
 
 mul({A,B},{C,D}) -> norm({A+C,B*D}).
 
-'div'(A, B) -> 'div'(A, B, 10).
+'div'(A, B) -> 'div'(A, B, application:get_env(dec,precision,10)).
 'div'({A,B},{C,D}, M) when A > C -> norm({max3(A,C,M), div2(max3(A,C,M), B, D*pow(10,abs(A-C)))});
 'div'({A,B},{C,D}, M) -> norm({max3(A,C,M), div2(max3(A,C,M), B*pow(10,abs(A-C)), D)}). 
 
