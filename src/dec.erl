@@ -15,9 +15,9 @@ add({A,B},{C,D}) -> Y = pow(10, abs(A-C)), norm(?IF(A >= C, {A, B + D*Y} , {C, B
 sub({A,B},{C,D}) -> Y = pow(10, abs(A-C)), norm(?IF(A >= C, {A, B - D*Y} , {C, B*Y - D})).
 
 'div'(A, B) -> 'div'(A, B, 10).
-'div'({A,B},{C,D}, M) -> Y = max3(A,C,M), Y1 = abs(A-C),
-    norm(?IF(A >= C, {Y, div2(Y, B*pow(10,Y1), D)}
-                   , {Y, div2(Y, D, B*pow(10,Y1))})).
+'div'({A,B},{C,D}, M) -> M1 = max3(A,C,M), Y = pow(10, abs(A-C)),
+    norm(?IF(A >= C, {M1, div2(M1, B*Y, D)}
+                   , {M1, div2(M1, D, B*Y)})).
 
 div2(M, A, B) ->
     N = A div B, N1 = (A rem B)*10,
