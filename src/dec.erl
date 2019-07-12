@@ -21,13 +21,8 @@ norm({A,B}) -> {A,B}.
 
 lift({X,Y},N) -> {X+N,Y*pow(10,N)}.
 
-nsub({A,_}=X,{C,_}=Y) when A > C -> nsub(X,lift(Y,A-C));
-nsub({A,_}=X,{C,_}=Y) when C > A -> nsub(lift(X,C-A),Y);
-nsub({X,B}=A,{X,D}=C) -> norm({X,B-D}).
-sub(A,B) -> nsub(norm(A),norm(B)).
+sub({A,B},{C,D}) when A > C -> norm({A, B - D*pow(10,abs(A-C))});
+sub({A,B},{C,D}) -> norm({C, D - B*pow(10,abs(A-C))}).
 
-nadd({A,_}=X,{C,_}=Y) when A > C -> nadd(X,lift(Y,A-C));
-nadd({A,_}=X,{C,_}=Y) when C > A -> nadd(lift(X,C-A),Y);
-nadd({X,B}=A,{X,D}=C) -> norm({X,B+D}).
-add(A,B) -> nadd(norm(A),norm(B)).
-
+add({A,B},{C,D}) when A > C -> norm({A, B + D*pow(10,abs(A-C))});
+add({A,B},{C,D}) -> norm({C, D + B*pow(10,abs(A-C))}).
