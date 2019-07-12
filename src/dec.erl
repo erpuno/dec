@@ -16,7 +16,10 @@ mul({A,B},{C,D}) -> norm({A+C,B*D}).
 'div'({A,B},{C,D}, M) when A > C -> norm({max3(A,C,M), div2(max3(A,C,M), B, D*pow(10,abs(A-C)))});
 'div'({A,B},{C,D}, M) -> norm({max3(A,C,M), div2(max3(A,C,M), B*pow(10,abs(A-C)), D)}). 
 
-div2(M, A, B ) when M =< 0 -> A div B + (A rem B)*10 div B;
+r(N) when N > 5 -> 1;
+r(N)->0.
+
+div2(M, A, B ) when M =< 0 -> A div B + r((A rem B)*10 div B);
 div2(M, A, B) ->  (A div B)*pow(10,M) + div2(M-1, (A rem B)*10, B).
 
 max3(A,B,C) -> max(max(A,B),C).
@@ -34,10 +37,10 @@ add({A,B},{C,D}) -> norm({C, D + B*pow(10,abs(A-C))}).
 test() ->
    {1, 2}            = dec:'div'({0,1}, {0,5}),
    {4, 625}          = dec:'div'({1,1}, {1,16}),
-   {10, 6666666672}  = dec:'div'({0,2}, {0,3}),
-   {10, 144927538}   = dec:'div'({0,1}, {0,69}),
-   {10,3333333336}   = dec:'div'({0,1}, {0,3}),
-   {10,33333333336}  = dec:'div'({0,10},{0,3}),
+   {10, 6666666667}  = dec:'div'({0,2}, {0,3}),
+   {10, 144927536}   = dec:'div'({0,1}, {0,69}),
+   {10,3333333333}   = dec:'div'({0,1}, {0,3}),
+   {10,33333333333}  = dec:'div'({0,10},{0,3}),
 
     {0, 5}           = dec:add({0,1}, {0,4}),
     {0, 5}           = dec:add({0,4}, {0,1}),
