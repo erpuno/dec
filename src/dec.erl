@@ -14,11 +14,14 @@ max3(A,B,C) -> max(max(A,B),C).
 mul({A,B},{C,D}) -> norm({A+C,B*D}).
 
 'div'(A, B) -> 'div'(A, B, 10).
-'div'({A,B},{C,D}, M) when A > C -> norm({max3(A,C,M)+1, div2(max3(A,C,M), B, D*pow(10,abs(A-C)))});
-'div'({A,B},{C,D}, M) -> norm({max3(A,C,M)+1, div2(max3(A,C,M), B*pow(10,abs(A-C)), D)}). 
+'div'({A,B},{C,D}, M) when A > C -> norm({max3(A,C,M), div2(max3(A,C,M)-1, B, D*pow(10,abs(A-C)))});
+'div'({A,B},{C,D}, M) -> norm({max3(A,C,M), div2(max3(A,C,M)-1, B*pow(10,abs(A-C)), D)}).
 
-div2(0, A, B ) -> A div B;
+div2(M, A, B ) when M =< 0 -> A div B + r((A rem B)*10 div B);
 div2(M, A, B) ->  (A div B)*pow(10,M) + div2(M-1, (A rem B)*10, B).
+
+r(N) when N > 5 -> 1;
+r(N)->0.
 
 norm({0,B}) -> {0,B};
 norm({A,B}) when B rem 10 == 0 -> norm({A-1,B div 10});
