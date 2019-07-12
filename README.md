@@ -13,4 +13,4 @@ Credits
 -------
 
 * Maxim Sokhatsky
-
+* Oleksandr Palchikovskiy
