@@ -5,4 +5,9 @@
 -type digits() :: integer().
 -type money() :: {fraction_length(),digits()}.
 
+-spec mul(money(),money()) -> money().
+-spec 'div'(money(),money()) -> money().
+-spec add(money(),money()) -> money().
+-spec sum(money(),money()) -> money().
+
 -endif.
