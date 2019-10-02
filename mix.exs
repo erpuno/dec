@@ -4,7 +4,7 @@ defmodule DEC.Mixfile do
   def project() do
     [
       app: :dec,
-      version: "0.7.4",
+      version: "0.10.0",
       elixir: "~> 1.7",
       description: "DEC Decimal Arbitrary Precision",
       package: package(),
@@ -18,7 +18,7 @@ defmodule DEC.Mixfile do
       licenses: ["ISC"],
       maintainers: ["Namdak Tonpa", "Oleksandr Palchikovskiy"],
       name: :dec,
-      links: %{"GitHub" => "https://github.com/enterprizing/dec"}
+      links: %{"GitHub" => "https://github.com/erpuno/dec"}
     ]
   end
 
