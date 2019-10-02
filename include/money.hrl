@@ -3,11 +3,13 @@
 
 -type fraction_length() :: integer().
 -type digits() :: integer().
--type money() :: {fraction_length(),digits()}.
 
--spec mul(money(),money()) -> money().
--spec 'div'(money(),money()) -> money().
--spec add(money(),money()) -> money().
--spec sub(money(),money()) -> money().
+-record(dec, { fraction = 0 :: fraction_length(),
+               digits = 0 :: digits()}).
+
+-spec mul(#dec{},#dec{}) -> #dec{}.
+-spec 'div'(#dec{},#dec{}) -> #dec{}.
+-spec add(#dec{},#dec{}) -> #dec{}.
+-spec sub(#dec{},#dec{}) -> #dec{}.
 
 -endif.
