@@ -4,7 +4,7 @@
 -type fraction_length() :: integer().
 -type digits() :: integer().
 
--record('Dec', { fraction = 0 :: fraction_length(),
+-record(money, { fraction = 0 :: fraction_length(),
                  digits = 0 :: digits()}).
 
 -endif.
