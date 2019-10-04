@@ -3,9 +3,9 @@
 
 -include("dec.hrl").
 
--spec mul(#dec{},#dec{}) -> #dec{}.
--spec 'div'(#dec{},#dec{}) -> #dec{}.
--spec add(#dec{},#dec{}) -> #dec{}.
--spec sub(#dec{},#dec{}) -> #dec{}.
+-spec mul(#'Dec'{},#'Dec'{}) -> #'Dec'{}.
+-spec 'div'(#'Dec'{},#'Dec'{}) -> #'Dec'{}.
+-spec add(#'Dec'{},#'Dec'{}) -> #'Dec'{}.
+-spec sub(#'Dec'{},#'Dec'{}) -> #'Dec'{}.
 
 -endif.
