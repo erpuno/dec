@@ -4,7 +4,7 @@ defmodule DEC.Mixfile do
   def project() do
     [
       app: :dec,
-      version: "0.10.0",
+      version: "0.10.1",
       elixir: "~> 1.7",
       description: "DEC Decimal Arbitrary Precision",
       package: package(),
